@@ -1,0 +1,37 @@
+1/---- to lunch the localhost server :----
+
+	import "net/http" 
+
+--put it under main func :
+
+	http.ListenAndServe(":8080", nil)
+
+2/---- to add html page(s) to the localhost:----
+
+import "html/template"
+
+--create variable for the template:
+
+	var name *template.Template
+
+--create func with its request and response:
+
+	func idx(w http.ResponseWriter, r *http.Request) {
+		name.ExecuteTemplate(w, "index.html", nil)
+		}
+
+--parse the template and call the idx func using Handlefunc in main func:
+	
+	name = template.Must(template.ParseGlob("*.html"))
+	http.HandleFunc("/", idx)
+
+3/----to apply css on the html :----
+--put it in main func and before ListenAndServe:
+
+	http.Handle("/style/", http.StripPrefix("/style/", http.FileServer(http.Dir("style"))))
+
+--put it in the html Header:
+
+	    <link rel="stylesheet" type="text/css" href="../style/style.css"/>
+
+4/----

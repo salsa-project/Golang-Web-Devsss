@@ -1,0 +1,14 @@
+1/----create Multi-Template for Html pages:
+
+ {{define "name here"}}
+....(those 4 dots means that you can put here what ever you want)
+ {{end}}
+
+-- to call that template (put it inside the html filesyou want):
+ {{template "name here"}}
+
+
+ 2/----
+
+
+
