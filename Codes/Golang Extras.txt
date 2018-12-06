@@ -1,0 +1,13 @@
+1/----Defer func will not execute until the other done (means Let Me The Last One):----
+
+defer fmt.Println("world")
+or
+defer func name(){
+}
+
+2/----*/ Init func run first (b4 main func) and once (if you need a command that run only once , use it) :
+
+func init(){
+}
+
+3/----
